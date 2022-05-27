@@ -1,0 +1,69 @@
+﻿@page
+@model TollApp.Pages.TOLL.ListModel
+@{
+}
+
+
+
+
+
+<form method="post">
+
+    <div class="col-sm-2">
+            <a href="/TOLL/Add" class="btn btn-success rounded-pill" role="button">
+                <i class="fa fa-add"></i>
+                Add
+            </a>
+        </div>
+
+    <div class="form-group">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Toll Location</th>
+                       <th scope="col">Toll Distance</th>
+                    <th scope="col">Toll Price</th>
+               
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.TollRecords == null || Model.TollRecords.Count <=0)
+                {
+                    <tr>
+                        <td>"No data found"</td>
+                    </tr>
+                }
+                else
+                {
+                @foreach (var d in Model.TollRecords)
+                {
+                    <tr>
+                        <td>@d.Id</td>
+                        <td>@d.TollLocation</td>
+                        <td>@d.TollDistance</td>
+                        <td>@d.TollPrice</td>
+                        
+                         <td>
+                           
+                              
+                                
+                                    <a href="/TOLL/Edit/@d.Id" class="btn btn-outline-warning" role="button">
+                                       <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="/TOLL/Delete/@d.Id" class="btn btn-outline-danger" role="button">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                
+                            </td>
+                      
+                       
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+</form>

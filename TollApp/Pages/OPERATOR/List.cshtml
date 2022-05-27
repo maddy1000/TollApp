@@ -1,0 +1,72 @@
+﻿@page
+@model TollApp.Pages.OPERATOR.ListModel
+@{
+}
+
+
+<form method="post">
+
+    <div class="col-sm-2">
+            <a href="/OPERATOR/Add" class="btn btn-success rounded-pill" role="button">
+                <i class="fa fa-add"></i>
+                Add
+            </a>
+        </div>
+
+
+       
+
+    <div class="form-group">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                       <th scope="col">Mobile Number</th>
+                    <th scope="col">Mail ID</th>
+                    <th scope="col">Password</th>
+               
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.OperatorRecords == null || Model.OperatorRecords.Count <=0)
+                {
+                    <tr>
+                        <td>"No data found"</td>
+                    </tr>
+                }
+                else
+                {
+                @foreach (var d in Model.OperatorRecords)
+                {
+                    <tr>
+                        <td>@d.Id</td>
+                        <td>@d.Name</td>
+                        <td>@d.MobileNumber</td>
+                        <td>@d.EmailId</td>
+                        <td>@d.Password</td>
+                    
+
+                         <td>
+                           
+                              
+                                
+                                    <a href="/OPERATOR/Edit/@d.Id" class="btn btn-outline-warning" role="button">
+                                       <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="/OPERATOR/Delete/@d.Id" class="btn btn-outline-danger" role="button">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                
+                            </td>
+                      
+                       
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+</form>

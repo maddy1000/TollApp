@@ -1,0 +1,26 @@
+﻿@page
+@model TollApp.Pages.AddTransactionModel
+@{
+}
+
+
+<form method="post">
+ 
+   
+    <div class="form-group">
+        <label asp-for="@Model.SelectedTollId"></label>
+        <select asp-for="@Model.SelectedTollId" asp-items="@Model.TollList" class="form-select"></select>
+   
+   
+
+    <div class="form-group">
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+        <h4>@Html.ValidationSummary()</h4>
+    </div>
+  
+    <div class="row gx-0">
+        <button type="submit" class="col btn btn-primary me-1">SUBMIT</button>
+        <a href="/Index" class="col btn btn-default ms-1 border-secondary">Cancel</a>
+    </div>
+</form>

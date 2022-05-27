@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+ 
+
+    @if(User.Identity.IsAuthenticated)
+        {
+
+           <div><h6 style="font-family:'Global Monospace'"class="display-4">WELCOME
+             @HttpContext.User.Identity.Name!</h6> </div> 
+           
+
+
+
+
+
+                    
+        }
+        else
+        {
+            
+
+    
+
+
+            <h1 style="text-align:center" >WELCOME TO TOLL PAGE</h1>
+        }
+ 
+
+
+
+
+
+
+</form>

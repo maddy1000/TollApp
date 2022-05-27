@@ -1,0 +1,71 @@
+﻿@page
+@model TollApp.Pages.USER.ListModel
+@{
+}
+
+
+
+<form method="post">
+    
+   
+
+    <div class="form-group">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                       <th scope="col">Mobile Number</th>
+                    <th scope="col">Mail ID</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Vehicle Category</th>
+                    <th>Vehicle Number</th>
+                    <th scope="col">Balance Amount</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.UserRecords == null || Model.UserRecords.Count <=0)
+                {
+                    <tr>
+                        <td>"No data found"</td>
+                    </tr>
+                }
+                else
+                {
+                @foreach (var d in Model.UserRecords)
+                {
+                    <tr>
+                        <td>@d.Id</td>
+                        <td>@d.Name</td>
+                        <td>@d.MobileNumber</td>
+                        <td>@d.EmailId</td>
+                        <td>@d.Password</td>
+                        <td>@d.CreatedAt</td>
+                        <td>@d.VehicleCategoryId</td>
+                        <td>@d.VehicleNumber</td>
+                        <td>@d.BalanceAmount</td>
+
+                         <td>
+                           
+                              
+                                
+                                    <a href="/USER/Edit/@d.Id" class="btn btn-outline-warning" role="button">
+                                       <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="/USER/Delete/@d.Id" class="btn btn-outline-danger" role="button">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                
+                            </td>
+                      
+                       
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+</form>

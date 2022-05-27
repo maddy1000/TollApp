@@ -1,0 +1,41 @@
+﻿@page
+@model TollApp.Pages.AdminDashboardModel
+@{
+}
+
+
+<form method="post">
+
+<div class="row">
+    <div class="col-md-4 col-xl-4">
+        <div class="card bg-c-blue db-card">
+            <div class="card-block">
+                <h6 class="m-b-20">User</h6>
+                <h2 class="text-end"><i class="fa fa-person float-start"></i><span>@Model.Dashboard.UserCount</span></h2>
+                <p class="m-b-0">Active <span class="f-right"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xl-4">
+        <div class="card bg-c-green db-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Operator</h6>
+                <h2 class="text-end"><i class="fa fa-building float-start"></i><span>@Model.Dashboard.OperatorCount</span></h2>
+                <p class="m-b-0">Active <span class="float-end"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xl-4">
+        <div class="card bg-c-pink db-card">
+            <div class="card-block">
+                <h6 class="m-b-20">Toll</h6>
+                <h2 class="text-end"><i class="fa-solid fa-building-columns float-start"></i><span>@Model.Dashboard.TollCount</span></h2>
+                <p class="m-b-0">Active <span class="float-end"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>
